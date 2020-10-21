@@ -1,14 +1,17 @@
 import React from 'react';
-import Navbar from './Navbar/Navbar';
-import Wjumbo from './WJumbo/Wjumbo';
+import { Route } from 'react-router-dom'
+import Navbar from '../../shared/Navbar/Navbar';
+import Home from '../Home/Home';
+import Track from '../Track/Track'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Wjumbo/>
-      <h1>BOSTA SHIPPING UI</h1>
+      {/* <Home /> */}
+      <Route path="/" exact component={Home} />
+      <Route path="/:id" component={Track} />
     </div>
   );
 }

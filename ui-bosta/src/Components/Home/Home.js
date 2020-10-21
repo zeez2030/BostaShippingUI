@@ -1,6 +1,19 @@
-import React from 'react';
-import './Wjumbo.css';
-const Wjumbo = () => {
+import React, { useEffect, useState } from 'react';
+import './Home.css';
+const Home = (props) => {
+
+    const [shippmentId, setShippmentId] = useState(0);
+
+    useEffect(() => {
+        console.log(props);
+    }, [])
+
+    const clickHandler = () => {
+        props.history.push(`/${shippmentId}`)
+    }
+    const setID = (e) => {
+        setShippmentId(e.target.value);
+    }
     return (
         <div className="jumbotron clip">
 
@@ -16,8 +29,8 @@ const Wjumbo = () => {
                 </div>
                 <div className="row my-5">
                     <div className="input-group mb-3 col-12">
-                        <input type="text" className="form-control" placeholder="Enter your shipping trackID" aria-label="track" aria-describedby="basic-addon1" />
-                        <button type="button" className="mx-2 btn btn-primary">Track</button>
+                        <input onChange={setID} type="text" className="form-control" placeholder="Enter your shipping trackID ex: 6636234,7234258,9442984,1094442 " aria-label="track" aria-describedby="basic-addon1" />
+                        <button onClick={clickHandler} type="button" className="mx-2 btn btn-primary">Track</button>
                     </div>
 
                 </div>
@@ -30,4 +43,4 @@ const Wjumbo = () => {
     )
 }
 
-export default Wjumbo;
+export default Home;
