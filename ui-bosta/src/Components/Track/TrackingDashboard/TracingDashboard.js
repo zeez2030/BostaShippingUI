@@ -1,10 +1,11 @@
 import React from 'react';
 import TrackingStatusBar from './TrackingStatusbar/TrackingStatusBar';
 import TrackingInfo from './TrackingInfo/TrackingInfo';
-const TracingDashboard = () => {
+const TracingDashboard = ({shippmentID}) => {
+    
     return (
         <div className="container main-container mt-5">
-            <TrackingInfo />
+            <TrackingInfo id={shippmentID} />
 
             <hr />
             <TrackingStatusBar />

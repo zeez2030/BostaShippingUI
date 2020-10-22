@@ -5,7 +5,7 @@ const Home = (props) => {
     const [shippmentId, setShippmentId] = useState(0);
 
     useEffect(() => {
-        console.log(props);
+     
     }, [])
 
     const clickHandler = () => {
