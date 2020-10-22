@@ -1,0 +1,147 @@
+.main-container {
+    border: 1px solid #ddd;
+    border-radius: .5em;
+    overflow: hidden;
+}
+
+#first-row p {
+    margin-top: 1em;
+    color: black
+}
+
+.text-muted {
+    font-size: 15px;
+
+}
+
+hr {
+    margin: 0em -10000px 1em -10000px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+#progressbar {
+    margin-bottom: 30px;
+    color: #455A64;
+    padding-left: 0px;
+    margin-top: 20px
+}
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 13px;
+    width: 25%;
+    float: left;
+    position: relative;
+    font-weight: 400
+}
+
+#progressbar .step0:before {
+    font-family: FontAwesome;
+    content: "";
+    color: #fff
+}
+
+#progressbar li:before {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    display: block;
+    font-size: 20px;
+    background: #ddd;
+    border-radius: 50%;
+    margin: auto;
+    padding: 0px
+}
+
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 5px;
+    background: #ddd;
+    position: absolute;
+    left: 0;
+    top: 12px;
+    z-index: -1
+}
+
+#progressbar li:last-child:after {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+
+}
+
+
+
+#progressbar li:first-child:after {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: absolute;
+    left: 20%
+}
+
+#progressbar li:last-child:after {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px
+}
+
+#progressbar li:first-child:after {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px
+}
+
+#progressbar li.active:after,
+#progressbar li.active:before {
+    background: red
+}
+
+#progressbar li.active:before {
+    content: attr(data-background-icon);
+    font-family: "Font Awesome 5 Free";
+    font-size: 15px;
+
+
+}
+
+#progressbar li.currently-active:before {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: -5px;
+    line-height: 45px;
+}
+
+.delivery-location {
+    background-color: rgba(202, 198, 198, 0.178);
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+.proplem-delivery {
+    padding: 1em;
+    border: 1px solid #ddd;
+    border-radius: .2em;
+}
+
+.proplem-delivery button {
+    outline-style: none;
+    border: none;
+    background-color: red;
+    color: white;
+    padding: .5em 3em;
+    border-radius: .7em;
+}
+
+.delivery-info-table th {
+    color: rgba(167, 162, 162, 1) !important;
+}
+
+.svg-img {
+    /* max-width: 100%; */
+    height: auto;
+
+
+}
