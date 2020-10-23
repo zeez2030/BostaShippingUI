@@ -19,20 +19,27 @@ const Track = (props) => {
         /*
             call get ShippmentInfo async function that calls api and sets the shippment state with shippment info
         */
+        async function getShippmentInfo(id) {
+            const res = await axios.get(`https://tracking.bosta.co/shipments/track/${id}`);
+            const shippmentInfo = new Shippment(res.data);
+            // console.log(shippmentInfo.historyEvents);
+            setShippment(shippmentInfo);
+        }
         getShippmentInfo(id);
+
+
+
+
 
     }, []);
 
-    const getShippmentInfo = async (id) => {
-        const res = await axios.get(`https://tracking.bosta.co/shipments/track/${id}`);
-        const shippmentInfo = new Shippment(res.data);
-        setShippment(shippmentInfo);
-    }
+
+
 
     return (
         <div className="container">
-            <TrackingDashboard shippmentID={shippmentID} />
-            <TrackingHistory />
+            <TrackingDashboard shippmentID={shippmentID} shipment={shippment} />
+            <TrackingHistory shipment={shippment} />
         </div>
     )
 }

@@ -95,7 +95,7 @@ hr {
 
 #progressbar li.active:after,
 #progressbar li.active:before {
-    background: red
+    background: #2ecc71
 }
 
 #progressbar li.active:before {

@@ -1,6 +1,34 @@
 import React from 'react'
 
-const HistoryTable = () => {
+const HistoryTable = ({ history }) => {
+
+    let hub = "";
+    const renderHisotryRows = () => {
+        if (history) {
+            return history.map(h => {
+                hub = h.getArabicHub() ? h.getArabicHub() : hub;
+                return (
+                    <tr key={h.timestamp}>
+                        <td >
+                            {h.getState()}<br />
+                            <span style={{ color: 'sandybrown' }}>
+                                {h.reason}
+                            </span>
+
+                        </td>
+                        <td>{h.getTime()}</td>
+                        <td>{h.getDate()}</td>
+                        <td>{hub}</td>
+                    </tr>
+                )
+            }
+            )
+
+        } else {
+            return null
+        }
+    }
+
     return (
         <div className="col-sm-12 col-md-8 justify-content-end">
             <p style={{ color: 'black', fontWeight: 'bold' }}>تفاصيل الشحنه</p>
@@ -20,19 +48,7 @@ const HistoryTable = () => {
                         <td>05/04/2020</td>
                         <td>مدينه نصر</td>
                     </tr>
-                    <tr>
-                        <td >تم انشاء الشحنة</td>
-                        <td>12:30pm</td>
-                        <td>05/04/2020</td>
-                        <td>مدينه نصر</td>
-                    </tr>
-                    <tr>
-                        <td >تم انشاء الشحنة</td>
-                        <td>12:30pm</td>
-                        <td>05/04/2020</td>
-                        <td>مدينه نصر</td>
-                    </tr>
-
+                    {renderHisotryRows()}
                 </tbody>
             </table>
 

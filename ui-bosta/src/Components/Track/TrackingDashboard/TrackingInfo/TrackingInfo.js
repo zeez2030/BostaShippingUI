@@ -1,12 +1,17 @@
 import React from 'react';
 
-const TrackingInfo = ({id}) => {
+const TrackingInfo = ({ id, shipment }) => {
 
     return (
         <div className="row" id="first-row">
             <div className="col-3  justify-content-end">
                 <p className="text-muted text-right">موعد التسليم خلال</p>
-                <p className="text-right bold"> 2020  يناير{3}</p>
+                <p className="text-right bold" >
+                    {
+                        shipment ? shipment.getPromisedDate() : '123'
+
+                    }
+                </p>
 
             </div>
             <div className="col-3  justify-content-end">
@@ -15,11 +20,16 @@ const TrackingInfo = ({id}) => {
             </div>
             <div className="col-3 justify-content-end">
                 <p className="text-muted text-right"> اخر تحديث</p>
-                <p className="text-right bold"> at 5:33pm 06/04/2020 الاثنين</p>
+                <p className="text-right bold"> {
+                    shipment ? shipment.getLastUpdateDate() : ''
+
+                }</p>
             </div>
             <div className="col-3 justify-content-end">
                 <p className="text-muted text-right">{id} رقم الشحنة</p>
-                <p className="text-right bold"> تم الغاء الشحنة</p>
+                <p className="text-right bold" style={{ color: shipment ? shipment.textColor : 'sandybrown' }}> {
+                    shipment ? shipment.getCurrentState() : ''
+                } </p>
             </div>
         </div>
     )
