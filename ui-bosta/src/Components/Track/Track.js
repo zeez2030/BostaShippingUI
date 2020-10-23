@@ -9,6 +9,7 @@ import './Track.css';
 const Track = (props) => {
     const [shippmentID, setShippmentID] = useState(0);
     const [shippment, setShippment] = useState(null);
+    const [errr, setError] = useState(false);
     useEffect(() => {
         /*
             get ID from params and set it to the state
@@ -19,11 +20,20 @@ const Track = (props) => {
         /*
             call get ShippmentInfo async function that calls api and sets the shippment state with shippment info
         */
-        async function getShippmentInfo(id) {
-            const res = await axios.get(`https://tracking.bosta.co/shipments/track/${id}`);
-            const shippmentInfo = new Shippment(res.data);
-            // console.log(shippmentInfo.historyEvents);
-            setShippment(shippmentInfo);
+        function getShippmentInfo(id) {
+            // const res = await axios.get(`https://tracking.bosta.co/shipments/track/${id}`);
+            // const shippmentInfo = new Shippment(res.data);
+            // setShippment(shippmentInfo);
+            axios.get(`https://tracking.bosta.co/shipments/track/${id}`).then(
+                (res) => {
+                    const shippmentInfo = new Shippment(res.data);
+                    setShippment(shippmentInfo);
+                }
+            ).catch(err => setError(true));
+
+
+
+
         }
         getShippmentInfo(id);
 
@@ -34,14 +44,18 @@ const Track = (props) => {
     }, []);
 
 
+    return !errr ? (
 
-
-    return (
         <div className="container">
             <TrackingDashboard shippmentID={shippmentID} shipment={shippment} />
             <TrackingHistory shipment={shippment} />
         </div>
-    )
+    ) :
+        (
+            <h1 className="mt-5">Unvalid track ID</h1>
+        )
+
+
 }
 
 export default Track
