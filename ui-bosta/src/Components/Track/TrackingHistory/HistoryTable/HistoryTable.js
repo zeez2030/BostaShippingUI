@@ -42,12 +42,6 @@ const HistoryTable = ({ history }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td >تم انشاء الشحنة</td>
-                        <td>12:30pm</td>
-                        <td>05/04/2020</td>
-                        <td>مدينه نصر</td>
-                    </tr>
                     {renderHisotryRows()}
                 </tbody>
             </table>
